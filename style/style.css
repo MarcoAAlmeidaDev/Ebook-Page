@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root {
+    --background--header: #020617;
+    --background--page: linear-gradient(
+        to right,
+        #1e3a8a, /* Azul escuro esbranquiçado (Tailwind: blue-900) */
+        #1e40af, /* Azul intermediário (Tailwind: blue-800) */
+        #1e429f  /* Azul mais escuro (customizado com tom moderno) */
+    );
+    --button--color: #3c54ec;
+    --button--color--hover: #1e3a8a;
+    --button--color--sec: #f39c12;
+    --title--color: #f7a634;
+    --text--buttton: #f5f5f5;
+}
+
+/* Efeito de fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos existentes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+        to right,
+        #0a0e1a, /* Azul quase preto (Tailwind customizado) */
+        #0d1b2a, /* Azul muito escuro */
+        #101d2f  /* Azul escuro com tom frio */
+    );
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    background: linear-gradient(to right, #0a0e1a, #0d1b2a, #101d2f);
+    width: 100%;
+}
+
+.logo img {
+    margin-top: 10px;
+    height: 120px;
+    width: 260px;
+    cursor: pointer;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logo img {
+       margin-left: 20px;
+    }
+
+    .nav-buttons {
+        margin-top: 30px;
+    }
+
+    .nav-buttons button {
+        display: none;
+    }
+}
+
+
+
+/* Transições */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button--color);
+    color: var(--text--buttton);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-buttons button:hover {
+    background-color: var(--button--color--hover);
+}
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 40px;
+    background: linear-gradient(
+        to right,
+        #0a0e1a, /* Azul quase preto (Tailwind customizado) */
+        #0d1b2a, /* Azul muito escuro */
+        #101d2f  /* Azul escuro com tom frio */
+    );
+    gap: 20px;
+}
+
+.hero img {
+    max-width: 100%;
+}
+
+.hero-content {
+    max-width: 100%;
+    color: #f5f5f5;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .hero img {
+        max-width: 45%;
+    }
+
+    .hero-content {
+        max-width: 50%;
+        text-align: left;
+    }
+}
+
+.hero-content h1 {
+    font-size: 2.3rem;
+    margin-bottom: 20px;
+    color: var(--title--color);
+    font-family: "Roboto", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.hero-content button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button--color);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero-content button:hover {
+    background-color: var(--button--color--hover);
+}
+
+.products {
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    background: linear-gradient(
+        to right,
+        #0a0e1a, /* Azul quase preto (Tailwind customizado) */
+        #0d1b2a, /* Azul muito escuro */
+        #101d2f  /* Azul escuro com tom frio */
+    );
+}
+
+.product-card {
+    background-color: #1f1f1f;
+    border-radius: 15px;
+    box-shadow:  10px 5px 100px 2px rgba(255, 255, 255, 0.1);
+    max-width: 350px;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    color: #f5f5f5;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.product-card h3 {
+    color: #e3e3e4;
+    font-weight: 500;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.7);
+}
+
+.product-card img {
+    width: 50%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.product-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.product-card button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button--color);
+    color: var(--text--buttton);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+    background-color: var(--button--color--hover);
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        max-width: 90%;
+    }
+}
+
+/* Centralizando o título "O que nossos leitores dizem" */
+.testimonials {
+    background: linear-gradient(
+        to right,
+        #0a0e1a, /* Azul quase preto (Tailwind customizado) */
+        #0d1b2a, /* Azul muito escuro */
+        #101d2f  /* Azul escuro com tom frio */
+    );
+    margin-top: 65px;
+}
+.testimonials h2 {
+    text-align: center;
+    color: var(--title--color);
+    font-weight: 500;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    width: 100%;  /* Garante que a largura do título ocupe toda a largura da tela */
+    display: flex;
+    justify-content: center;  /* Centraliza o texto horizontalmente */
+    align-items: center;  /* Centraliza o texto verticalmente se necessário */
+}
+
+/* Garantir que o título seja responsivo */
+@media (max-width: 768px) {
+    .testimonials h2 {
+        font-size: 1.5rem;  /* Reduz o tamanho da fonte em telas menores */
+        padding: 0 20px;  /* Adiciona um pequeno padding lateral para evitar que o texto toque nas bordas */
+    }
+}
+
+.testimonial-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.testimonial-card {
+    background-color: #1f1f1f;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    max-width: 300px;
+    padding: 20px;
+    color: #f5f5f5;
+    text-align: center;
+}
+
+.testimonial-card img {
+    max-width: 100%;
+    border-radius: 10px !important;
+}
+
+.testimonial-card p {
+    font-size: 0.92rem;
+    margin-bottom: 10px;
+}
+
+.stars {
+    color: #f39c12;
+    font-size: 19px;
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        max-width: 90%;
+    }
+}
+
+.life-change-section {
+    background: linear-gradient(
+        to right,
+        #0a0e1a, /* Azul quase preto (Tailwind customizado) */
+        #0d1b2a, /* Azul muito escuro */
+        #101d2f  /* Azul escuro com tom frio */
+    );
+    padding: 50px;
+    text-align: center;
+    /* border: 2px solid rgba(240, 237, 237, 0.2); */
+    border-radius: 10px;
+}
+
+.life-change-content {
+    width: 100%;
+}
+
+.life-change-section img {
+    width: 900px;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.life-change-section h2 {
+    color: var(--title--color);
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.life-change-section p {
+    font-size: 1.1rem;
+    color: #f5f5f5;
+    margin-bottom: 30px;
+}
+
+.life-change-section button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button--color);
+    color: var(--text--buttton);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.life-change-section button:hover {
+    background-color: var(--button--color--hover);
+}
+
+/* Footer Styles */
+footer {
+    background: linear-gradient(
+        to right,
+        #0a0e1a, /* Azul quase preto (Tailwind customizado) */
+        #0d1b2a, /* Azul muito escuro */
+        #101d2f  /* Azul escuro com tom frio */
+    );
+;
+    color: #f5f5f5;
+    padding: 20px 20px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    border-top: 1px solid #333;
+}
+
+.change-life {
+    margin-top: 20px;
+}
+/* Logo Section */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    min-height: 80px;
+}
+
+.footer-logo {
+    position: relative;
+    left: -20px; /* Move slightly to the left */
+}
+
+.footer-logo img {
+    width: 330px;
+    height: 140px;
+}
+
+/* Contact Links */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.footer-links a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #f5f5f5;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #f39c12;
+}
+
+.footer-links img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+/* Bottom Section */
+.footer-bottom {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.footer-bottom p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.footer-bottom button {
+    padding: 15px 40px;
+    background-color: var(--button--color);
+    color: var(--text--buttton);
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.footer-bottom button:hover {
+    background-color: var(--button--color--hover);
+}
+
+/* Add Space Above Footer */
+body > footer {
+    margin-top: 40px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .footer-logo {
+        position: relative;
+        left: 0; /* Keep centered on smaller screens */
+        margin-left: 15px;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+
+    .footer-links a {
+        font-size: 0.8rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.7rem;
+    }
+}
+
+.bx {
+    font-size: 25px;
+    margin-right: 5px;
+}
